@@ -72,7 +72,7 @@ const VideoSingle = ({ i, title, video }) => {
             
             <video onClick={() =>handlePlay()} loop={true}  ref={videoRef} muted={mute} src={video} alt={title} />
 
-            <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+            <div  className="progress-bar" style={{ width: `${progress}%` }}></div>
 
             <p>{title}</p>
 

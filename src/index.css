@@ -26,9 +26,6 @@ header h1{
     @media(max-width: 767px){
         height: 90vh;
     }
-    @media(max-width: 350px){
-        height: 90vh;
-    }
    
 }
 
@@ -42,9 +39,6 @@ header h1{
     margin-bottom: 20px;
     @media(max-width: 767px){
         height:75vh;
-    }
-    @media(max-width: 350px){
-        height: 75vh;
     }
 }
 
