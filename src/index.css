@@ -24,7 +24,10 @@ header h1{
     height: 90vh;
     scrollbar-width: none;
     @media(max-width: 767px){
-        height: 80vh;
+        height: 90vh;
+    }
+    @media(max-width: 350px){
+        height: 75vh;
     }
    
 }
@@ -33,9 +36,14 @@ header h1{
 .scroll-card{
     
     height: 90vh;
-    scroll-snap-align: start; 
+    scroll-snap-align: start;
+    max-width: 350px;
+    margin: auto; 
     @media(max-width: 767px){
-        height: 80vh;
+        height: 90vh;
+    }
+    @media(max-width: 350px){
+        height: 75vh;
     }
 }
 
@@ -46,6 +54,7 @@ header h1{
 .scroll-card video {
     height: 90%;
     width: 100%;
+    object-fit: cover;
    
 }
 .scroll-card p{
@@ -59,7 +68,7 @@ header h1{
     display: flex;
     padding: 5px 0;
     justify-content: center;
-    max-width: 300px;
+    max-width: 350px;
     margin: auto;
     gap: 1px;
     margin-bottom: 10px;
@@ -68,7 +77,7 @@ header h1{
 
 @media(min-width : 526px){
    .card-buttons{
-       min-width: 400px;
+       min-width: 350px;
    }
 }
 
@@ -100,5 +109,12 @@ header h1{
     width: 5rem;
     height: 1.3rem;
     cursor: pointer;
+}
+
+.progress-bar{
+    background-color: red;
+    height: 2px;
+    
+    
 }
 

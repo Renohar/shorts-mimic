@@ -9,6 +9,7 @@ const VideoSingle = ({ i, title, video }) => {
     const [mute, setMute] = useState(true);
     const [play,setPlay] = useState(true)
     const [liked,setLiked] = useState(false)
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -50,11 +51,29 @@ const VideoSingle = ({ i, title, video }) => {
       setLiked(true)
     }
 
+    useEffect(() => {
+      const updateProgress = () => {
+          const duration = videoRef.current.duration;
+          const currentTime = videoRef.current.currentTime;
+          const progress = (currentTime / duration) * 100;
+          setProgress(progress);
+      };
+
+      videoRef.current.addEventListener('timeupdate', updateProgress);
+
+      return () => {
+          videoRef.current.removeEventListener('timeupdate', updateProgress);
+      };
+  }, []);
+
 
     return (
         <div id={i}>
             
             <video onClick={() =>handlePlay()} loop={true}  ref={videoRef} muted={mute} src={video} alt={title} />
+
+            <div className="progress-bar" style={{ width: `${progress}%` }}></div>
+
             <p>{title}</p>
 
             <div className="card-buttons">
@@ -62,7 +81,7 @@ const VideoSingle = ({ i, title, video }) => {
                 <button onClick={() => videoRef.current.pause()}><FaPause /></button>
                 <button className={liked ? "red" : ""} onClick={() => handleLike()}><AiOutlineLike/></button>
             </div>
-            
+
         </div>
     );
 };
