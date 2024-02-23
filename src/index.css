@@ -1,23 +1,98 @@
-.scroll-outer{
+body{
+    padding: 0px;
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+header{
+    background-color: rgb(247, 247, 252);
+    padding: 10px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin-bottom: 1rem;
+}
+
+header h1{
+    margin: 0px;
+    font-size: 1.2rem;
+}
+
+
+.scroll-box{
     scroll-snap-type: y mandatory;
     overflow-y: auto;
-    height: 100vh;
+    height: 90vh;
     scrollbar-width: none;
    
 }
 
 
-
-.scroll{
+.scroll-card{
     
-    height: 85vh;
+    height: 90vh;
     scroll-snap-align: start; 
 }
 
-.scroll > div{
+.scroll-card > div{
     height: 100%;
 }
 
-.scroll video {
+.scroll-card video {
     height: 90%;
+    width: 100%;
+   
 }
+.scroll-card p{
+    text-align: left;
+
+    max-width: 280px;
+    margin: 5px auto;
+}
+
+.card-buttons {
+    display: flex;
+    padding: 5px 0;
+    justify-content: center;
+    max-width: 300px;
+    margin: auto;
+    gap: 1px;
+    margin-bottom: 10px;
+    
+}
+
+@media(min-width : 526px){
+   .card-buttons{
+       min-width: 400px;
+   }
+}
+
+/* .card-buttons button{
+    width: 100%;
+    background-color: aliceblue;
+    border: 1px solid rgb(182, 182, 182);
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
+    outline: none;
+
+} */
+
+.card-buttons button{
+    box-shadow: none;
+    border: none;
+    background-color: #fff;
+    outline: none;
+}
+
+.card-buttons .red path{
+    color: red;
+}
+
+.card-buttons svg{
+    width: 5rem;
+    height: 1.3rem;
+    cursor: pointer;
+}
+

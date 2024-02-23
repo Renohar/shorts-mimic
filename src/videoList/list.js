@@ -12,7 +12,7 @@ const videoList = [
     {
         "id" : "2",
         "title": "title 2",
-        "video": "/media/cascading-waterfall.mp4"
+        "video": "/media/herd-of-sheep.mp4"
     }
 ]
 

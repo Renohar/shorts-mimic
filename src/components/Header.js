@@ -2,9 +2,9 @@ import React from 'react'
 
 const Header = () => {
     return (
-        <div>
-            <h1>Youtube Shorts Mimics</h1>
-        </div>
+        <header>
+            <h1>Youtube Shorts Mimic</h1>
+        </header>
     )
 }
 

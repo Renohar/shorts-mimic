@@ -1,41 +1,70 @@
-import React from 'react'
-import {useState,useRef,useEffect} from "react"
+import React, { useState, useRef, useEffect } from 'react';
+import { FaPlay,FaPause } from "react-icons/fa";
+import { AiOutlineLike } from "react-icons/ai";
 
-const VideoSingle = ({i,title,video}) => {
-    const videoRef = useRef(null)
 
-    const [play,setPlay] = useState(false)
+
+const VideoSingle = ({ i, title, video }) => {
+    const videoRef = useRef(null);
+    const [mute, setMute] = useState(true);
+    const [play,setPlay] = useState(true)
+    const [liked,setLiked] = useState(false)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setMute(false);
+                videoRef.current.play()
+            } else {
+                setMute(true);
+                videoRef.current.pause()
+            }
+            });
+        }, { threshold: 0.4 });
+
+        if (videoRef.current) {
+            observer.observe(videoRef.current);
+        }
+
+        return () => {
+            if (videoRef.current) {
+                observer.unobserve(videoRef.current);
+                
+            }
+        };
+    }, []); 
 
     const handlePlay = () => {
-        if (play) {
-          setPlay(false);
-          videoRef.current.pause();
-        } else {
-          videoRef.current.play();
-          setPlay((play) => !play);
-        }
-      };
+      if(play){
+        videoRef.current.pause()
+        setPlay(false)
+      }
+      else{
+        videoRef.current.play()
+        setPlay(true)
+      }
+    }
 
-   
+    const handleLike = () => {
+      setLiked(true)
+    }
 
-      
-
-      
-  
-  
-    
 
     return (
-        <div id ={i}>
+        <div id={i}>
+            
+            <video onClick={() =>handlePlay()} loop={true}  ref={videoRef} muted={mute} src={video} alt={title} />
             <p>{title}</p>
-            <video onClick={handlePlay} autoPlay ref={videoRef} src={video} alt={title}/>
-            <div>
-                <button onClick={() =>setPlay(true)}>Play</button>
-                <button>Pause</button>
-            </div>
-           
-        </div>
-    )
-}
 
-export default VideoSingle
+            <div className="card-buttons">
+                <button onClick={() => videoRef.current.play()}><FaPlay/></button>
+                <button onClick={() => videoRef.current.pause()}><FaPause /></button>
+                <button className={liked ? "red" : ""} onClick={() => handleLike()}><AiOutlineLike/></button>
+            </div>
+            
+        </div>
+    );
+};
+
+export default VideoSingle;
