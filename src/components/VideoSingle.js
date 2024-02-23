@@ -66,6 +66,16 @@ const VideoSingle = ({ i, title, video }) => {
       };
   }, []);
 
+  const playButton = () => {
+      videoRef.current.play()
+      setPlay(true)
+  }
+
+  const pauseButton = () => {
+    videoRef.current.pause()
+    setPlay(false)
+}
+
 
     return (
         <div id={i}>
@@ -77,8 +87,8 @@ const VideoSingle = ({ i, title, video }) => {
             <p>{title}</p>
 
             <div className="card-buttons">
-                <button onClick={() => videoRef.current.play()}><FaPlay/></button>
-                <button onClick={() => videoRef.current.pause()}><FaPause /></button>
+                <button disabled={play? true : false}  onClick={() => playButton()}><FaPlay/></button>
+                <button disabled={play? false : true}  onClick={() => pauseButton()}><FaPause /></button>
                 <button className={liked ? "red" : ""} onClick={() => handleLike()}><AiOutlineLike/></button>
             </div>
 
