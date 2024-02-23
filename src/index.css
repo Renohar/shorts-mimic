@@ -27,7 +27,7 @@ header h1{
         height: 90vh;
     }
     @media(max-width: 350px){
-        height: 75vh;
+        height: 90vh;
     }
    
 }
@@ -39,8 +39,9 @@ header h1{
     scroll-snap-align: start;
     max-width: 350px;
     margin: auto; 
+    margin-bottom: 20px;
     @media(max-width: 767px){
-        height: 90vh;
+        height:75vh;
     }
     @media(max-width: 350px){
         height: 75vh;
