@@ -1,13 +1,23 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.scroll-outer{
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: 100vh;
+    scrollbar-width: none;
+   
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+.scroll{
+    
+    height: 85vh;
+    scroll-snap-align: start; 
+}
+
+.scroll > div{
+    height: 100%;
+}
+
+.scroll video {
+    height: 90%;
 }
