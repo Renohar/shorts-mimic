@@ -23,6 +23,9 @@ header h1{
     overflow-y: auto;
     height: 90vh;
     scrollbar-width: none;
+    @media(max-width: 767px){
+        height: 85vh;
+    }
    
 }
 
@@ -31,6 +34,9 @@ header h1{
     
     height: 90vh;
     scroll-snap-align: start; 
+    @media(max-width: 767px){
+        height: 85vh;
+    }
 }
 
 .scroll-card > div{
