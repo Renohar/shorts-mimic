@@ -37,10 +37,36 @@ const Video = () => {
       }
   }
 
+  const handleScroll = () => {
+    const scrollContainer = document.querySelector('.scroll-outer');
+    if (!scrollContainer) return;
+  
+    const { scrollTop } = scrollContainer;
+  
+    if (scrollTop === 0 && index > 0) {
+      setIndex((prev) => prev - 1);
+      Navigate(`/${index - 1}`);
+    } else {
+      const { clientHeight, scrollHeight } = scrollContainer;
+      if (scrollTop + clientHeight >= scrollHeight - 10) {
+        if (index < videoList.length - 1) {
+          setIndex((prev) => prev + 1);
+          Navigate(`/${index + 1}`);
+        }
+      }
+    }
+  };
+  
+  
+
+
+
   useEffect(() => {
       window.addEventListener('keydown', handleArrow);
+      window.addEventListener('scroll', handleScroll)
       return () => {
         window.removeEventListener('keydown', handleArrow);
+        window.removeEventListener('scroll', handleScroll)
       };
     }, [index]);
 
@@ -49,7 +75,7 @@ const Video = () => {
         <div className="scroll-outer"> 
          {
              videoList.map((list,i) =>
-               ( i == index &&  <div className="scroll" key={i}>
+               ( i === index &&  <div className="scroll" key={i}>
                     <VideoSingle 
                       i={i} 
                       title={list.title} 
