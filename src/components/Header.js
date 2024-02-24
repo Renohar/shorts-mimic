@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
     return (
         <header>
-            <h1>Youtube Shorts Mimic</h1>
+            <h1>Shorts Mimic</h1>
         </header>
     )
 }
